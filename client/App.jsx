@@ -1,5 +1,6 @@
 import React, { Component, useState } from 'react';
 import styles from '../prettify.scss';
+import ShelfView from './ShelfView.jsx';
 // import ReactDOM from 'react-dom';
 
 class App extends Component{
@@ -14,9 +15,10 @@ class App extends Component{
 
   render(){
       return(
-      <div>
-          <h2>WELCOME TO BOOKBIT: TESTING APP HANG</h2>
-      </div>
+        <div>
+            <ShelfView />
+            {/* <h2>WELCOME TO BOOKBIT: TESTING APP HANG</h2> */}
+        </div>
       );
    }
 }
