@@ -1,11 +1,17 @@
 import React from 'react';
 import '../prettify.scss';
-import Page from "../components/page.jsx";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 import Login from "../components/login.jsx";
 import Signup from "../components/signup.jsx";
 
-function App() {
+export default function App() {
   return (
+    <Router>
     <div>
 
       <div className="logingif">
@@ -13,7 +19,14 @@ function App() {
       </div>
 
       <div className="logingif">
-        <img src="../logingif.gif" width="600 px" height="480 px"></img>
+        <Switch>
+          <Route exact path="/">
+            <img src="../logingif.gif" width="600 px" height="480 px"></img>
+          </Route>
+          <Route exact path="/signup">
+            <img src="../signupgif.gif" width="600 px" height="480 px"></img>
+          </Route>
+        </Switch>
       </div>
 
       <div class="container" className="imagetitle">
@@ -27,12 +40,35 @@ function App() {
         </div>
       </div>
 
-      <div className="righted">
-      <Page/>
+     <div className="righted">
+      <Switch>
+        <Route exact path="/">
+            <First />
+        </Route>
+        <Route exact path="/signup">
+            <Sign />
+        </Route>
+      </Switch>
       </div>
     </div>
+    </Router>
   );
 
 }
 
-export default App;
+function First() {
+  return (
+    <div>
+    <Login />
+    </div>
+);
+}
+
+function Sign() {
+  return (
+    <div>
+    <Signup />
+    </div>
+);
+}
+

@@ -1,5 +1,11 @@
 import React, { Component } from "react";
 import '../prettify.scss';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
 
 class Login extends Component {
     render() {
@@ -16,9 +22,9 @@ class Login extends Component {
                 </div>
                 <p className="or">OR</p>
                 <div className="form-group">
-                    <button type="button" className="btn btn-warning btn-large w-100">Placeholder for GitHub OAuth</button>
+                    <Link to="/auth"><button type="button" className="btn btn-warning btn-large w-100">Placeholder for GitHub OAuth</button></Link>
                     <div className="separate"></div>
-                    <button type="button" className="btn btn-warning btn-large w-100">Placeholder for Google OAuth</button>
+                    <Link to="/auth"><button type="button" className="btn btn-warning btn-large w-100">Placeholder for Google OAuth</button></Link>
                     <div className="separate"></div>
                     <div className="separate"></div>
                 </div>
@@ -26,7 +32,7 @@ class Login extends Component {
                 <div className="separate"></div>
                 <div className="separate"></div>
                 <p className="forgot-password text-right">
-                    Can't log in? | <Link to="/signup">Sign up for an account here.</Link>
+                    Can't log in? | <Link to="/signup">Sign up here.</Link>
                 </p>
             </form>
         );
