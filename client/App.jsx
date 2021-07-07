@@ -2,23 +2,18 @@ import React, { Component, useState } from 'react';
 import styles from '../prettify.scss';
 // import ReactDOM from 'react-dom';
 
-class App extends Component{
+class App extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = { };
   }
-
-//   getResults(data) {
-
-//   }
-
-  render(){
-      return(
-      <div>
-          <h2>WELCOME TO BOOKBIT: TESTING APP HANG</h2>
-      </div>
-      );
-   }
+  render() {
+    return(
+    <div>
+        <h2>WELCOME TO BOOKBIT: TESTING APP HANG</h2>
+    </div>
+    );
+  }
 }
 
 export default App;
