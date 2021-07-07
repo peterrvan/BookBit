@@ -1,0 +1,12 @@
+$black: black;
+$red: red;
+$white: white; 
+
+@font-face {
+    font-family: Camp;
+    src: 'camp.woff';
+}
+
+body {
+    background: $red;
+}
