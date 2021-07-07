@@ -2,6 +2,9 @@ $black: black;
 $red: red;
 $white: white; 
 $pink: pink;
+$platinum: #E9E3E6;
+$green: #9EB25D;
+$charcoal: #373F51;
 
 @font-face {
     font-family: Camp;
@@ -9,5 +12,55 @@ $pink: pink;
 }
 
 body {
-    background: $pink;
+    background: $platinum;
+    color: $charcoal;
 }
+
+.container {
+  width: auto;
+}
+
+.shelf-view {
+  margin: 0%;
+  padding: 0%;
+  display: flex;
+  flex-direction: column;
+
+  .bi-plus-circle {
+    font-size: 18px;
+  }
+}
+
+.shelf-search-bar {
+  padding: 2%;
+  margin: 0px;
+  background: $green;
+
+  .row {
+    margin: 0px;
+    padding: 1px;
+  }
+
+  .form-group {
+    padding: 1px;
+  }
+
+  .bi-search {
+    font-size: 20px;
+  }
+
+  #user-icon {
+    padding: 1px 2px;
+    text-align: right;
+  }
+
+  .bi-person-circle {
+    font-size: 28px;
+    padding: 0px;
+  }
+}
+
+.my-books-header {
+  padding: 2% 3%;
+}
+

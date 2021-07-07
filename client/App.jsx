@@ -15,7 +15,7 @@ class App extends Component{
 
   render(){
       return(
-        <div>
+        <div class="app">
             <ShelfView />
             {/* <h2>WELCOME TO BOOKBIT: TESTING APP HANG</h2> */}
         </div>
