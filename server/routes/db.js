@@ -3,14 +3,24 @@ const router = express.Router();
 
 const dbController = require('../controllers/dbController');
 
-router.get('/books', dbController.getBooks, (req, res) => {
+// router.get('/', dbController.getBooks, (req, res) => {
+//   console.log('here')
+//   return res.status(200).json(res.locals.myBooks);
+// })
+
+router.post('/login', dbController.userLogin, (req, res) => {
     console.log('here')
-    return res.status(200).json(res.locals.myBooks);
-  })
+    //redirect to users home page w/ their books of choice;
+    return res.status(200).json(res.locals.user_id);
+})
+
+//routers all get caught in server.js
 
   // Login
   // Verify that username exists and matches password in database
+  // Upon sucessful login, return the user_id in res.locals
   // SELECT * FROM users...WHERE username = `${query}`...RETURNING _id
+
 
   // Sign up
   // Verify that username is not in the table
