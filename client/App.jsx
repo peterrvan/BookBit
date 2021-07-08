@@ -14,8 +14,8 @@ import SearchView from "../components/SearchView.jsx";
 export default function App() {
   return (
     <div>
-      {/* <ShelfView /> */}
-      <SearchView />
+      <ShelfView />
+      {/* <SearchView /> */}
     </div>
     // <Router>
     // <div>

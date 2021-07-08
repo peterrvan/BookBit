@@ -7,9 +7,9 @@ const SearchView = props => {
     <div className="row search-view">
       <ApiSearchBar />
       {/* My Books and + sign */}
-      <div className="row my-books-header">
+      {/* <div className="row my-books-header">
         <h3>Add Books</h3>
-      </div>
+      </div> */}
       {/* list of fetched books */}
     </div>
   )

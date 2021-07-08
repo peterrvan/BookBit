@@ -193,7 +193,7 @@ body {
   }
 
   #user-icon {
-    padding: 1px 0px;
+    padding: 1px 2px 1px 0px;
     text-align: left;
     margin: 0px;
   }
@@ -210,5 +210,23 @@ body {
   .bi-house-door-fill {
     font-size: 28px;
     padding: 0px;
+    color: $charcoal;
+  }
+}
+
+// modal styling
+.modal {
+  // .close {
+  //   font-size: 24px;
+  // }
+
+  .btn-outline-danger {
+    padding: 4px 8px;
+    background: white;
+  }
+
+  .btn-success {
+    padding: 4px 20px;
+    color: white;
   }
 }
