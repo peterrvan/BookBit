@@ -2,11 +2,12 @@ const express = require ('express');
 const router = express.Router();
 
 const dbController = require('../controllers/dbController');
+const apiController = require('../controllers/apiController');
 
-router.get('/books', dbController.getBooks, (req, res) => {
-    console.log('here')
+router.get('/books', dbController.getBooks, apiController.getBookInfo, (req, res) => {
+    // console.log('res.locals.myBooks: ', res.locals.myBooks);
     return res.status(200).json(res.locals.myBooks);
-  })
+})
 
   // Login
   // Verify that username exists and matches password in database
