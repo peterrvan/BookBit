@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState } from 'react';
 import '../prettify.scss';
 import {
     BrowserRouter as Router,
@@ -7,17 +7,41 @@ import {
     Link
 } from "react-router-dom";
 
-class Login extends Component {
-    render() {
+const Login = () => {
+
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
+    function handleOnClick (username, password) {
+        console.log('button clicked!');
+        console.log('username: ', username, ' password: ', password);
+        fetch('/db/login', {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({username: username, password: password}) //username and password 
+        })
+        .then(res => res.json())
+        .then(data => {
+        console.log('data in handleOnClick: ', data)
+        //switch view to shelf page - requisite id populates data 
+        })
+        .catch((error) => {
+        console.log('error', error)  // returns this if error
+        })
+    };
+
         return (
-            <form>
+            // <form>
+            <div>
                 <h1 className="loginheader">Log In to BookBit</h1>
                 <div className="form-group">
-                    <input type="email" className="form-control" placeholder="Enter email" />
+                    <input type="username" className="form-control" placeholder="Enter username" onChange={(e) => { setUsername(e.target.value) } } />
                     <div className="separate"></div>
-                    <input type="password" className="form-control" placeholder="Enter password" />
+                    <input type="password" className="form-control" placeholder="Enter password" onChange={(e) => { setPassword(e.target.value)} }/>
                     <div className="separate"></div>
-                    <button type="submit" className="btn btn-success btn-large w-100">Login</button>
+                    <button type="submit" className="btn btn-success btn-large w-100" onClick={() => { handleOnClick(username, password) } } >Login</button>
                     <div className="separate"></div>
                 </div>
                 <p className="or">OR</p>
@@ -34,9 +58,29 @@ class Login extends Component {
                 <p className="forgot-password text-right">
                     Can't log in? | <Link to="/signup">Sign up here.</Link>
                 </p>
-            </form>
+            </div>
+            // </form>
         );
-    }
 }
+
+
+
+// getResults(data) {
+//     fetch('/db/login', {
+//       method: "POST",
+//       headers: {
+//           'Content-Type': 'application/json',
+//       },
+//       body: JSON.stringify(searchInfo) //username and password 
+//     })
+//     .then(res => res.json())
+//     .then(data => {
+//       console.log(data)
+//     //   this.setState({hotels: data.info.slice(1)});
+//     })
+//     .catch(error=>{
+//       console.log('error', error)  // returns this if error
+//     })
+// }
 
 export default Login;

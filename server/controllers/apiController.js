@@ -32,7 +32,7 @@ apiController.searchResults = (req, res, next) => {
         // textSnippet: data.data.items[i].searchInfo.textSnippet
       })
     }
-    next();
+    return next();
   })
   .catch((err) => {
     console.log('ERROR! Error in apiController.searchResults: ', err);
@@ -40,5 +40,35 @@ apiController.searchResults = (req, res, next) => {
   })
 }
 
+apiController.getBookInfo = (req, res, next) => {
+  // Perform a get request for each item in myBooks
+  // For loop for length of myBooks
+  async function generate () {
+    for (let i = 0; i < res.locals.myBooks.length; i += 1) {
+      await axios.get(`https://www.googleapis.com/books/v1/volumes/${res.locals.myBooks[i].volume_id}`)
+      .then((data) => {
+        // console.log('res.locals.myBooks inside getBookInfo: ', res.locals.myBooks);
+        // console.log('data.data.volumeInfo: ', data.data.volumeInfo);
+        res.locals.myBooks[i].title = data.data.volumeInfo.title;
+        res.locals.myBooks[i].subtitle = data.data.volumeInfo.subtitle;
+        res.locals.myBooks[i].authors = data.data.volumeInfo.authors;
+        res.locals.myBooks[i].publisher = data.data.volumeInfo.publisher;
+        res.locals.myBooks[i].publishedDate = data.data.volumeInfo.publishedDate;
+        res.locals.myBooks[i].description = data.data.volumeInfo.description;
+        res.locals.myBooks[i].pageCount = data.data.volumeInfo.pageCount;
+        res.locals.myBooks[i].categories = data.data.volumeInfo.categories;
+        res.locals.myBooks[i].imageLinks = data.data.volumeInfo.imageLinks;
+      })
+      .catch((err) => {
+        console.log('ERROR! Error in apiController.getBookInfo: ', err);
+        next(err);
+      })
+    }
+  }
+  generate()
+    .then(() => {
+      return next();
+    })
+}
 
 module.exports =  apiController;
