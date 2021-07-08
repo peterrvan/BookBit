@@ -14,6 +14,10 @@ const Book = props => {
     }
   }
 
+  const handleSave = (e) => {
+    console.log('clicked save notes');
+  }
+
   return (
     <div className="container book">
       {/* heart icon - heart is filled if book is favorited */}
@@ -43,11 +47,25 @@ const Book = props => {
               {/* <button type="button" className="btn btn-default close" data-dismiss="modal">&times;</button> */}
             </div>
             <div className="modal-body">
-              <p>some text here</p>
+              <div className="row">
+                <img className="col-md-5" src={props.thumbnail} height="250px" width="195px"/>
+                <div className="col-md-5">
+                  Written by: 
+                </div>
+              </div>
+              <br/>
+              <div className="container">
+                <form action={handleSave()}>
+                  <div className="form-group">
+                    <label htmlFor="notes">Notes</label>
+                    <textarea type="notes" className="form-control" id="notes" placeholder="What did you like about this book?" name="notes" />
+                  </div>
+                </form>
+              </div>
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-outline-danger btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" className="btn btn-success" data-dismiss="modal">Save</button>
+              <button type="submit" className="btn btn-success" data-dismiss="modal">Save</button>
             </div>
           </div>
         </div>
