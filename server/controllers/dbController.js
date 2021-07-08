@@ -20,6 +20,25 @@ dbController.getBooks = (req, res, next) => {
     })
 }
 
+dbController.addBook = (req, res, next) => {
+  // Retrieve the user_id and volume_id from req.body
+	const { user_id } = req.body;
+  const { volume_id } = req.body;
+
+  const query = 'INSERT INTO books(volume_id, favorite, user_id) VALUES($1,\'false\', $2) RETURNING volume_id, favorite, notes, user_id';
+  const parameters = [ volume_id, user_id ];
+
+  db.query(query, parameters)
+    .then((data) => {
+      res.locals.book = data.rows[0];
+      return next();
+    })
+    .catch((err) => {
+      console.log('Error in dbController.addBook: ', err);
+      return next(err);
+    })
+}
+
 // dbController.getBooks = (req, res, next) => {
 // 	// Dummy data for getBooks
 // 	res.locals.myBooks = [

@@ -5,8 +5,13 @@ const dbController = require('../controllers/dbController');
 const apiController = require('../controllers/apiController');
 
 router.get('/books', dbController.getBooks, apiController.getBookInfo, (req, res) => {
-    // console.log('res.locals.myBooks: ', res.locals.myBooks);
-    return res.status(200).json(res.locals.myBooks);
+  // console.log('res.locals.myBooks: ', res.locals.myBooks);
+  return res.status(200).json(res.locals.myBooks);
+})
+
+router.post('/add', dbController.addBook, (req, res) => {
+  // console.log('res.locals.book: ', res.locals.book);
+  return res.status(200).json(res.locals.book);
 })
 
   // Login
@@ -22,7 +27,7 @@ router.get('/books', dbController.getBooks, apiController.getBookInfo, (req, res
   // Fetch google api for book information pertaining to those volume ids
   // Return back an array with objects containing all info for books to be rendered on homepage
 
-  // addBook
+  // addBook (done)
 
   // deleteBook
 
