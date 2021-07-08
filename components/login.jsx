@@ -4,11 +4,12 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Link
+    Link,
+    Redirect
 } from "react-router-dom";
+import ShelfView from "./ShelfView.jsx";
 
-const Login = () => {
-
+const Login = (props) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
@@ -24,8 +25,10 @@ const Login = () => {
         })
         .then(res => res.json())
         .then(data => {
-        console.log('data in handleOnClick: ', data)
-        //switch view to shelf page - requisite id populates data 
+          console.log('data in handleOnClick: ', data)
+        //switch view to shelf page - requisite id populates data
+          props.setRedirect('/shelf');
+        //   props.handleRedirect();
         })
         .catch((error) => {
         console.log('error', error)  // returns this if error
@@ -33,7 +36,6 @@ const Login = () => {
     };
 
         return (
-            // <form>
             <div>
                 <h1 className="loginheader">Log In to BookBit</h1>
                 <div className="form-group">
@@ -59,7 +61,6 @@ const Login = () => {
                     Can't log in? | <Link to="/signup">Sign up here.</Link>
                 </p>
             </div>
-            // </form>
         );
 }
 
