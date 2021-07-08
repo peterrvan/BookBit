@@ -1,8 +1,9 @@
 $black: black;
-$back: #4AA0B5;
+$blue: #4AA0B5;
 $white: white; 
 $pink: pink;
 $platinum: #E9E3E6;
+$back: $platinum;
 $green: #9EB25D;
 $charcoal: #373F51;
 
@@ -21,7 +22,7 @@ $charcoal: #373F51;
 
 .title {
     text-align: center;
-    color: gold;
+    color: #6F1A07;
     font-size: 50px;
     letter-spacing: -0.01em;
     line-height: 28px;
@@ -88,7 +89,7 @@ $charcoal: #373F51;
 }
 
 body {
-    background: $platinum;
+    background: $back;
     color: $charcoal;
 }
 

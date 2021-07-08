@@ -13,7 +13,6 @@ export default function App() {
   return (
     <Router>
     <div>
-
       <div className="logingif">
         <img src="../page.png" width="600 px" height="480 px"></img>
       </div>
