@@ -60,7 +60,7 @@ dbController.getBooks = (req, res, next) => {
 			"thumbnail": "http://books.google.com/books/content?id=eQQUDAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
 	}
 }];
-	next();
+	return next();
 }
 
 module.exports =  dbController;

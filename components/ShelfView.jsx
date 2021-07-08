@@ -1,20 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import styles from '../prettify.scss';
 import ShelfSearchBar from './ShelfSearchBar.jsx';
-import Books from './Books.jsx';
+import Bookshelf from './Bookshelf.jsx';
 
 const ShelfView = props => {
-  useEffect(() => {
-    fetch('http://localhost:3000/db/books')
-      .then((response) => {
-        response.json();
-      })
-      .then((data) => {
-        console.log('BOOK LIST', data);
-      })
-      .catch()
-  }, []);
-
   return (
     <div className="row shelf-view">
       <ShelfSearchBar />
@@ -26,7 +15,7 @@ const ShelfView = props => {
         </h3>
       </div>
       {/* Book component (opens to modal) */}
-      <Books />
+      <Bookshelf />
     </div>
   )
 }
