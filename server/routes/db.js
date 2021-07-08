@@ -17,7 +17,7 @@ router.get('/books', dbController.getBooks, apiController.getBookInfo, (req, res
   // Verify that username is not in the table
   // Then you insert new entry into the users table, RETURNING _id
 
-  // getBooks
+  // getBooks (done)
   // Front end sends backend _id, backend retrieves all volume_ids associated with that user id
   // Fetch google api for book information pertaining to those volume ids
   // Return back an array with objects containing all info for books to be rendered on homepage

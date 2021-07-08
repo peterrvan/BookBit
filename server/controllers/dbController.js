@@ -6,7 +6,7 @@ dbController.getBooks = (req, res, next) => {
   // Retrieve the user_id from req.body
 	const { user_id } = req.body;
 
-  const query = 'SELECT * FROM books WHERE user_id = $1';
+  const query = 'SELECT volume_id, favorite, notes FROM books WHERE user_id = $1';
   const parameters = [ user_id ];
 
   db.query(query, parameters)
