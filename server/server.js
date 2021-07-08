@@ -11,7 +11,7 @@ const dbRouter = require('./routes/db');
 // Adding ability to parse request body and form data
 app.use(express.json());
 app.use(express.urlencoded());
-app.use(cors());
+app.use(cors())
 
 // Serve all static assets
 app.use(express.static(path.resolve(__dirname, '../')));

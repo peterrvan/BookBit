@@ -193,11 +193,21 @@ body {
   }
 
   #user-icon {
-    padding: 1px 2px;
-    text-align: right;
+    padding: 1px 0px;
+    text-align: left;
+    margin: 0px;
   }
 
   .bi-person-circle {
+    font-size: 28px;
+    padding: 0px;
+  }
+
+  #house-icon {
+    text-align: right;
+  }
+
+  .bi-house-door-fill {
     font-size: 28px;
     padding: 0px;
   }
