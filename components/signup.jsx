@@ -7,8 +7,7 @@ import {
     Link
 } from "react-router-dom";
 
-class Signup extends Component {
-    render() {
+const Signup = props => {
         return (
             <form>
                 <h1 className="loginheader">Sign Up</h1>
@@ -37,7 +36,6 @@ class Signup extends Component {
                 </p>
             </form>
         );
-    }
 }
 
 

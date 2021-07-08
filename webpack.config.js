@@ -35,7 +35,7 @@ module.exports = {
     hot: true,
     inline: true,
     contentBase: path.resolve(__dirname, 'dist'),
-    proxy: {"./": "http://localhost:3000"}
+    proxy: {"./**": "http://localhost:3000"}
   },
   plugins: [
     new HtmlWebPackPlugin({ 

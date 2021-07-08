@@ -16,6 +16,7 @@ app.use(express.static(path.resolve(__dirname, '../')));
 
 // Route handler for all api requests
 app.use('/api', apiRouter);
+console.log('here!!!!');
 app.use('/db', dbRouter);
 
 app.get('/', (req, res) => {
