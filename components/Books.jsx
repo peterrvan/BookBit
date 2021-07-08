@@ -3,12 +3,12 @@ import styles from '../prettify.scss';
 
 const Books = props => {
   return (
-    <div class="container books">
+    <div className="container bookshelf">
       {/* thumbnail for each book */}
       Book
       {/* heart icon */}
-      <i class="bi bi-suit-heart"></i>
-      <i class="bi bi-suit-heart-fill"></i>
+      <i className="bi bi-suit-heart"></i>
+      <i className="bi bi-suit-heart-fill"></i>
     </div>
   )
 }
