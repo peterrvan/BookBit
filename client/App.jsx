@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../prettify.scss';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link,
-  Redirect
+  Redirect,
+  useHistory,
 } from "react-router-dom";
 import Login from "../components/login.jsx";
 import Signup from "../components/signup.jsx";
@@ -13,31 +14,16 @@ import ShelfView from "../components/ShelfView.jsx";
 import SearchView from "../components/SearchView.jsx";
 
 export default function App() {
-
+  const history = useHistory();
+  
   const [redirect, setRedirect] = useState(null);
+  useEffect(() => {
+    if (redirect) {
+      history.push('/shelf')
+    }
+  })
 
-  // const handleRedirect = () => {
-  //   console.log("hit func");
-  //   setRedirect('/shelf');
-  //   let result;
-  //   return result;
-  // }
-
-  let result;
-  
-  if (redirect) {
-    return (
-    <Router>
-      <Redirect to={redirect} />
-      {/* <Switch>
-        <Route exact path="/shelf" component={ShelfView} />
-      </Switch> */}
-    </Router>
-    );
-  }
-  
   return (
-    <Router>
       <div>
       <Switch>
        <Route exact path="/">
@@ -84,13 +70,11 @@ export default function App() {
           <Signup />
         </div>
        </Route>
-
-       <Route exact path="/shelf" component={ShelfView} />
-
+       <Route exact path="/shelf">
+         <ShelfView />
+      </Route>
       </Switch>
       </div>
-
-    </Router>
   );
 }
 

@@ -7,7 +7,6 @@ import {
     Link,
     Redirect
 } from "react-router-dom";
-import ShelfView from "./ShelfView.jsx";
 
 const Login = (props) => {
     const [username, setUsername] = useState('');

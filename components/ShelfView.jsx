@@ -12,8 +12,6 @@ const ShelfView = props => {
   }
 
   return (
-    <Router> 
-      <Route to="/shelf">
         <div className="row shelf-view">
           <ShelfSearchBar />
           {/* My Books and + sign */}
@@ -28,12 +26,10 @@ const ShelfView = props => {
           {/* Book component (opens to modal) */}
           <Bookshelf />
         </div>
-      </Route>
-      <Switch>
-        <Route exact path="/shelf" component={ShelfView} />
-        <Route exact path="/search" component={SearchView} />
-      </Switch>
-    </Router>
+      // <Switch>
+      //   <Route exact path="/shelf" component={ShelfView} />
+      //   <Route exact path="/search" component={SearchView} />
+      // </Switch>
   )
 }
 
