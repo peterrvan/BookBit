@@ -140,3 +140,26 @@ body {
 .my-books-header {
   padding: 2% 3%;
 }
+
+.book {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+
+  .btn {
+    text-align: right;
+    padding: 2% 0%;
+  }
+
+  .thumbnail {
+    display: flex;
+    flex-direction: column;
+  }
+
+  img {
+    align-self: center;
+  }
+  
+
+}

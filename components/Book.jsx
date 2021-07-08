@@ -10,22 +10,26 @@ const Book = props => {
     let authString = '';
     for (let i = 0; i < authList.length; i++) {
       if (i === authList.length - 1) authString.push(`& ${authList[i]}`)
-      authString.push(`${authList[i]}, `);
+      else authString.push(`${authList[i]}, `);
     }
   }
 
   return (
     <div className="container book">
-      <div>
-        <img src={props.thumbnail} />
-      </div>
-      <h4>{props.title}</h4>
-      <h5>{getAuthors(props.authors)}</h5>
+      {/* heart icon - heart is filled if book is favorited */}
+      {
+        props.liked ? 
+          <button className="btn"><i className="bi bi-suit-heart-fill"></i></button> : 
+          <button className="btn"><i className="bi bi-suit-heart"></i></button>
+      }
       {/* thumbnail for each book */}
-      Book
-      {/* heart icon */}
-      <i className="bi bi-suit-heart"></i>
-      <i className="bi bi-suit-heart-fill"></i>
+      <div className="thumbnail">
+        <img src={props.thumbnail} height="300px"/>
+        {/* <style backgroundImage={props.thumbnail}/> */}
+      </div>
+      {/* book title and author */}
+      <h5>{props.title}</h5>
+      <h6>{getAuthors(props.authors)}</h6>
     </div>
   )
 }
