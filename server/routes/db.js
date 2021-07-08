@@ -15,8 +15,13 @@ router.post('/add', dbController.addBook, (req, res) => {
 })
 
 router.post('/delete', dbController.deleteBook, (req, res) => {
-  console.log('res.locals.deletedBook: ', res.locals.deletedBook);
+  // console.log('res.locals.deletedBook: ', res.locals.deletedBook);
   return res.status(200).json(res.locals.deletedBook);
+})
+
+router.post('/note', dbController.updateNote, (req, res) => {
+  console.log('res.locals.note: ', res.locals.note);
+  return res.status(200).json(res.locals.note);
 })
 
   // Login
@@ -34,7 +39,7 @@ router.post('/delete', dbController.deleteBook, (req, res) => {
 
   // addBook (done)
 
-  // deleteBook
+  // deleteBook (done)
 
   // updateBook => implies the bottom two
 
