@@ -8,6 +8,8 @@ import {
 } from "react-router-dom";
 import Login from "../components/login.jsx";
 import Signup from "../components/signup.jsx";
+import ShelfView from "../components/ShelfView.jsx";
+import SearchView from "../components/SearchView.jsx";
 
 export default function App() {
   return (
@@ -33,7 +35,7 @@ export default function App() {
         </div>
         </div>
         <div className="righted">
-          <First />
+          <Login />
         </div>
        </Route>
 
@@ -55,14 +57,12 @@ export default function App() {
         </div>
         </div>
         <div className="righted">
-          <Sign />
+          <Signup />
         </div>
        </Route>
 
        <Route exact path="/shelf">
-         <div>
-          <Sign />
-        </div>
+         <ShelfView />
        </Route>
 
       </Switch>
@@ -72,19 +72,27 @@ export default function App() {
   );
 }
 
-function First() {
-  return (
-    <div>
-    <Login />
-    </div>
-);
-}
+// function First() {
+//   return (
+//     <div>
+//     <Login />
+//     </div>
+// );
+// }
 
-function Sign() {
-  return (
-    <div>
-    <Signup />
-    </div>
-);
-}
+// function Sign() {
+//   return (
+//     <div>
+//     <Signup />
+//     </div>
+// );
+
+// function Sign() {
+//   return (
+//     <div>
+//     <Signup />
+//     </div>
+// );
+
+
 
