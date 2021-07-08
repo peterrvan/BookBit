@@ -14,6 +14,11 @@ router.post('/add', dbController.addBook, (req, res) => {
   return res.status(200).json(res.locals.book);
 })
 
+router.post('/delete', dbController.deleteBook, (req, res) => {
+  console.log('res.locals.deletedBook: ', res.locals.deletedBook);
+  return res.status(200).json(res.locals.deletedBook);
+})
+
   // Login
   // Verify that username exists and matches password in database
   // SELECT * FROM users...WHERE username = `${query}`...RETURNING _id
@@ -31,7 +36,7 @@ router.post('/add', dbController.addBook, (req, res) => {
 
   // deleteBook
 
-  // updateBook
+  // updateBook => implies the bottom two
 
   // updateNote
 

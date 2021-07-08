@@ -39,6 +39,25 @@ dbController.addBook = (req, res, next) => {
     })
 }
 
+dbController.deleteBook = (req, res, next) => {
+  // Retrieve the user_id and volume_id from req.body
+	const { user_id } = req.body;
+  const { volume_id } = req.body;
+
+  const query = 'DELETE FROM books WHERE volume_id = $1 AND user_id = $2 RETURNING *';
+  const parameters = [ volume_id, user_id ];
+
+  db.query(query, parameters)
+    .then((data) => {
+      res.locals.deletedBook = data.rows[0];
+      return next();
+    })
+    .catch((err) => {
+      console.log('Error in dbController.deleteBook: ', err);
+      return next(err);
+    })
+}
+
 // dbController.getBooks = (req, res, next) => {
 // 	// Dummy data for getBooks
 // 	res.locals.myBooks = [
