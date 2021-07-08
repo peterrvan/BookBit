@@ -49,12 +49,20 @@ const Book = props => {
             <div className="modal-body">
               <div className="row">
                 <img className="col-md-5" src={props.thumbnail} height="250px" width="195px"/>
-                <div className="col-md-5">
-                  Written by: 
+                <div className="col-md-7">
+                  <p>Written by: {getAuthors(props.authors)}</p>
+                  <p>Genre: {props.book.categories[0]}</p>
+                  <p>Published: {props.book.publishedDate}</p>
+                  <p>Publisher: {props.book.publisher}</p>
+                  <p>Page Count: {props.book.pageCount}</p>
                 </div>
               </div>
               <br/>
-              <div className="container">
+              <div>
+                <p>{props.book.description}</p>
+              </div>
+              <br/>
+              <div>
                 <form action={handleSave()}>
                   <div className="form-group">
                     <label htmlFor="notes">Notes</label>
