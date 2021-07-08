@@ -9,11 +9,13 @@ import {
 import Login from "../components/login.jsx";
 import Signup from "../components/signup.jsx";
 import ShelfView from "../components/ShelfView.jsx";
+import SearchView from "../components/SearchView.jsx";
 
 export default function App() {
   return (
     <div>
       <ShelfView />
+      {/* <SearchView /> */}
     </div>
     // <Router>
     // <div>

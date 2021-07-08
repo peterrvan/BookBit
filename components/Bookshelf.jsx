@@ -15,7 +15,6 @@ const Bookshelf = props => {
       })
       .then((data) => {
         setBookList(data);
-        console.log('BOOK LIST', bookList);
       })
       .catch((err) => {
         console.log(err);
@@ -24,20 +23,21 @@ const Bookshelf = props => {
 
   const createBookshelf = () => {
     let row = [];
+    let rowNum = 0;
 
     for (let i = 0; i < bookList.length; i++) {
-      console.log('book', bookList[i]);
+      console.log(bookList[i].title, bookList[i]);
       const book = bookList[i];
 
       row.push(
         <div className="col-md-3">
-          <Book thumbnail={book.imageLinks.thumbnail} id={book.id} title={book.title} authors={book.authors} book={book} />
+          <Book thumbnail={book.imageLinks.thumbnail} id={book.id} title={book.title} authors={book.authors} book={book} key={book.id} />
         </div>
       )
 
       if (row.length === 4 || i === bookList.length - 1) {
         bookshelf.push(
-          <div className="row">
+          <div className="row" key={rowNum++}>
             {row.shift()}
             {row.shift()}
             {row.shift()}
