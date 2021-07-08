@@ -20,10 +20,14 @@ router.post('/delete', dbController.deleteBook, (req, res) => {
 })
 
 router.post('/note', dbController.updateNote, (req, res) => {
-  console.log('res.locals.note: ', res.locals.note);
+  // console.log('res.locals.note: ', res.locals.note);
   return res.status(200).json(res.locals.note);
 })
 
+router.post('/favorite', dbController.updateFavorite, (req, res) => {
+  // console.log('res.locals.favorite: ', res.locals.favorite);
+  return res.status(200).json(res.locals.favorite);
+})
   // Login
   // Verify that username exists and matches password in database
   // SELECT * FROM users...WHERE username = `${query}`...RETURNING _id

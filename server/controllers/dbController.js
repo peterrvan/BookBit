@@ -78,6 +78,25 @@ dbController.updateNote = (req, res, next) => {
     })
 }
 
+dbController.updateFavorite = (req, res, next) => {
+  // Retrieve the user_id and volume_id from req.body
+	const { user_id } = req.body;
+  const { volume_id } = req.body;
+  const { favorite } = req.body;
+
+  const query = 'UPDATE books SET favorite = $3 WHERE volume_id = $1 AND user_id = $2 RETURNING *';
+  const parameters = [ volume_id, user_id, favorite ];
+
+  db.query(query, parameters)
+    .then((data) => {
+      res.locals.favorite = data.rows[0];
+      return next();
+    })
+    .catch((err) => {
+      console.log('Error in dbController.updateFavorite: ', err);
+      return next(err);
+    })
+}
 // dbController.getBooks = (req, res, next) => {
 // 	// Dummy data for getBooks
 // 	res.locals.myBooks = [
