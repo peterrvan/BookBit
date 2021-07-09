@@ -25,11 +25,11 @@ const ShelfView = props => {
           </div>
           {/* Book component (opens to modal) */}
           <Bookshelf />
-        </div>
-      // <Switch>
-      //   <Route exact path="/shelf" component={ShelfView} />
-      //   <Route exact path="/search" component={SearchView} />
-      // </Switch>
+      {/* <Switch> */}
+        {/* <Route exact path="/shelf" component={ShelfView} />
+        <Route exact path="/search" component={SearchView} /> */}
+      {/* </Switch> */}
+      </div>
   )
 }
 
